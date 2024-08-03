@@ -1,23 +1,28 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
-import HomePage from "./components/HomePage";
-import AddEmployeePage from "./components/AddEmployeePage";
-import MyInfoPage from "./components/MyInfoPage";
+import Dashboard from "./components/Dashboard";
 import LoginPage from "./components/LoginPage";
+import Hero from "./components/Hero";
+import AdminRegister from "./components/AdminRegister";
+import CompanyRegister from "./components/CompanyRegister";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate to={"/login"} />} />
+        <Route path="*" element={<NotFound/>} />
 
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<Navigate to={"/hero"} />} />
 
-        <Route path="/add-employee" element={<AddEmployeePage />} />
-
-        <Route path="/my-info" element={<MyInfoPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/adm-register" element={<AdminRegister />} />
+
+        <Route path="/cmp-register" element={<CompanyRegister />} />
+
+        <Route path="/hero" element={<Hero />} />
 
         {/* Input rute lain di sini */}
       </Routes>
